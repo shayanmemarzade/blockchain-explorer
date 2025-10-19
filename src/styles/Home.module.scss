@@ -1,0 +1,194 @@
+.homeParent {
+  display: flex;
+
+  .aside {
+    flex: 0 0 30%;
+  }
+
+  .heading {
+    margin-bottom: 2rem;
+  }
+
+  .mainContent {
+    flex: 0 0 70%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.coinPriceList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .coinName {
+      font-weight: bold;
+      display: block;
+    }
+  }
+}
+
+.tableGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.5fr 2fr 1fr;
+  font-size: 14px;
+  width: 100%;
+}
+
+.tableHeader {
+  color: var(--color-custom-gray);
+  font-weight: 600;
+}
+
+.tableCell {
+  padding: 12px 12px;
+  display: flex;
+  align-items: center;
+
+  a {
+    width: 100%;
+  }
+}
+
+.tableRow {
+  display: contents;
+}
+
+.tableData {
+  border-bottom: 1px solid #e1e5e9;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.hashCell {
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.hashText {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--color-custom-blue);
+
+}
+
+.heightCell {
+  font-weight: 600;
+  color: #000;
+}
+
+.minerCell {
+  color: var(--color-custom-blue);
+}
+
+@media (min-width: 769px) {
+  .tableGrid {
+    grid-template-columns: 1fr 2fr 1.5fr 2fr 1fr;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .tableGrid {
+    grid-template-columns: 1fr 2fr 1.5fr 1.8fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .tableContainer {
+    margin: 10px;
+    border-radius: 6px;
+  }
+
+  .tableGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .tableRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: 2px solid var(--color-custom-gray);
+    margin-bottom: 16px;
+    border-radius: 0px
+  }
+
+  .tableRowHeader {
+    display: none;
+  }
+
+  .tableCell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-right: none;
+    border-bottom: 1px solid #f1f3f4;
+    position: relative;
+  }
+
+  .tableCell:last-child {
+    border-bottom: none;
+  }
+
+  .tableCell:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #000;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    min-width: 80px;
+  }
+
+  .tableHeader {
+    display: none;
+  }
+
+  .hashCell {
+    font-size: 11px;
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .tableContainer {
+    margin: 0px;
+  }
+
+  .tableCell {
+    padding: 10px 12px;
+    font-size: 13px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+  .homeParent {
+    flex-direction: column;
+  }
+
+  .aside,
+  .mainContent {
+    flex: 1 0 100%;
+  }
+
+  .aside {
+    margin-bottom: 2rem;
+  }
+}

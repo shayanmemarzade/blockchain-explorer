@@ -1,0 +1,245 @@
+.title {
+  margin-bottom: 48px;
+
+  .coinTitle {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 0;
+    margin-bottom: 8px;
+  }
+
+  .coinName {
+    color: var(--color-custom-gray);
+    font-size: 28px;
+    font-weight: 600;
+
+    img {
+      width: 48px;
+      height: 48px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    .block {
+      color: #000;
+    }
+  }
+
+  .blockDepth {
+    font-size: 14px;
+    color: var(--color-custom-gray);
+  }
+}
+
+.infoTable {
+  margin-bottom: 48px;
+
+  .infoTableRow {
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    padding: 12px 0;
+
+    label {
+      flex: 0 0 300px;
+      color: var(--color-custom-gray);
+    }
+
+    span {
+      display: flex;
+      width: 100%;
+    }
+
+    .text {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.copyButton {
+  background: none;
+  border: none;
+  margin-left: 8px;
+  padding: 0;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
+.heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+}
+
+.transactionsContainer {
+  padding: 1.5rem 1.5rem 0 0;
+}
+
+.transactionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.transactionItem {
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 1rem;
+}
+
+.transactionItem:last-child {
+  border-bottom: none;
+}
+
+.transactionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.transactionHash {
+  display: flex;
+
+
+  .label {
+    color: var(--color-custom-gray);
+    max-width: 140px;
+    flex: 0 0 140px;
+  }
+
+  .value {
+    font-size: 0.875rem;
+    color: var(--color-custom-blue);
+    margin: 0 0 0.5rem 0;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.transactionFee {
+  font-size: 0.75rem;
+  color: var(--color-custom-gray);
+}
+
+.transactionDetails {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  width: calc(100% - 140px);
+  margin-left: auto;
+}
+
+.transactionSection {
+  max-width: 45%;
+  flex: 0 0 45%;
+}
+
+.arrowIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 10%;
+
+  svg {
+    fill: green;
+  }
+}
+
+.transactionInput {
+  color: var(--color-custom-gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.transactionOutput {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.transactionOutputAddress {
+  color: var(--color-custom-blue);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  width: 100%;
+}
+
+.transactionOutputAddressOpReturn {
+  color: #000;
+}
+
+.transactionOutputValue {
+  font-weight: 500;
+}
+
+.noTransactions {
+  color: var(--color-custom-gray);
+  text-align: center;
+  padding: 2rem 0;
+  margin: 0;
+}
+
+.errorMessage {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #ef4444;
+  font-size: 1rem;
+
+  p {
+    margin: 0;
+  }
+
+  .errorDetail {
+    margin-top: 0.5rem;
+    color: var(--color-custom-gray);
+  }
+}
+
+.transactionNote {
+  text-align: center;
+  color: var(--color-custom-gray);
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 1027px) {
+  .infoTable {
+    .infoTableRow {
+      flex-direction: column;
+      align-items: flex-start;
+
+      label {
+        flex: none;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .transactionsContainer {
+    padding: 1.5rem 0 0 0;
+  }
+
+  .transactionHash {
+    display: block;
+    width: 100%;
+  }
+
+  .transactionSection {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .arrowIcon {
+    transform: rotate(90deg);
+  }
+
+  .transactionDetails {
+    flex-direction: column;
+    width: 100%;
+  }
+}
