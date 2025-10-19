@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 export default function Search() {
   const navigate = useNavigate();
 
-  const [searchQuery, setSearchQuery] = useState("00000000000000000005ca55a40c80213c61e5dfc6a5c2d6d38263303ead1468");
+  const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSearch = async (event: React.FormEvent) => {
