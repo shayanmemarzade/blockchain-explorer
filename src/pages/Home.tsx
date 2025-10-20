@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { Search, Loading } from '../components';
 import { LatestBlocksTable } from '../components/block';
 import { fetchRecentBlocks } from '../api';
-import type { Block } from '../types/block';
+import type { BlockData } from '../types/block';
 import CoinPriceList from '../components/block/CoinPriceList';
 import styles from '../styles/Home.module.scss';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const [latestBlocks, setLatestBlocks] = useState<Block[]>([]);
+  const [latestBlocks, setLatestBlocks] = useState<BlockData[]>([]);
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
@@ -34,7 +34,6 @@ const Home = () => {
       <div className={styles.homeParent}>
         <aside className={styles.aside}>
           <CoinPriceList />
-
         </aside>
         <main className={styles.mainContent}>
           <Search />

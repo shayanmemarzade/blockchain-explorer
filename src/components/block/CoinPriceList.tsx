@@ -23,31 +23,27 @@ export default function CoinPriceList() {
     }
   };
 
+  const coins = [
+    { id: 'btc', name: 'Bitcoin', icon: '/icons/btc.png', alt: 'Bitcoin Icon' },
+    { id: 'eth', name: 'Ethereum', icon: '/icons/eth.png', alt: 'Ethereum Icon' },
+    { id: 'bch', name: 'Bitcoin Cash', icon: '/icons/bch.svg', alt: 'Bitcoin Cash Icon' }
+  ];
+
   return (
     <>
       <h3 className={styles.heading}>Block Explorer</h3>
       <ul className={styles.coinPriceList}>
-        <li>
-          <img src='/icons/btc.png' alt='Bitcoin Icon' />
-          <div>
-            <span className={styles.coinName}>Bitcoin</span>
-            <span className={styles.coinPrice}>{prices.btc ? `$${commaSeparate(prices.btc)}` : 'Loading...'}</span>
-          </div>
-        </li>
-        <li>
-          <img src='/icons/eth.png' alt='Ethereum Icon' />
-          <div>
-            <span className={styles.coinName}>Ethereum</span>
-            <span className={styles.coinPrice}>{prices.eth ? `$${commaSeparate(prices.eth)}` : 'Loading...'}</span>
-          </div>
-        </li>
-        <li>
-          <img src='/icons/bch.svg' alt='Bitcoin Cash Icon' />
-          <div>
-            <span className={styles.coinName}>Bitcoin Cash</span>
-            <span className={styles.coinPrice}>{prices.bch ? `$${commaSeparate(prices.bch)}` : 'Loading...'}</span>
-          </div>
-        </li>
+        {coins.map((coin) => (
+          <li key={coin.id}>
+            <img src={coin.icon} alt={coin.alt} />
+            <div>
+              <span className={styles.coinName}>{coin.name}</span>
+              <span className={styles.coinPrice}>
+                {prices[coin.id as keyof typeof prices] ? `$${commaSeparate(prices[coin.id as keyof typeof prices])}` : 'Loading...'}
+              </span>
+            </div>
+          </li>
+        ))}
       </ul>
     </>
   )

@@ -10,5 +10,3 @@ export {
 export {
   fetchCryptoPrices,
 } from './prices';
-
-export type { CoinPrice, PricesData } from './prices';

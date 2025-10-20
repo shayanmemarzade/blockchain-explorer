@@ -2,12 +2,12 @@ import { Link } from 'react-router';
 import { truncateHash } from '../../utils/truncate';
 import { timeAgo } from '../../utils/timeAgo';
 import { getMinerInfo } from '../../utils/minerInfo';
-import type { Block } from '../../types/block';
+import type { BlockData } from '../../types/block';
 import type { Transaction } from '../../types/transaction';
 import styles from '../../styles/Home.module.scss';
 
 interface LatestBlocksTableProps {
-  blocks: Block[];
+  blocks: BlockData[];
   transactions: Transaction[];
 }
 

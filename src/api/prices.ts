@@ -1,17 +1,8 @@
-export interface CoinPrice {
-  ticker: string;
-  price: string;
-}
-
-export interface PricesData {
-  btc: string;
-  eth: string;
-  bch: string;
-}
+import type { CoinPrice, PricesData } from '../types/prices';
 
 export const fetchCryptoPrices = async (): Promise<PricesData> => {
   try {
-    const response = await fetch('/api/_next/data/ad0724f/prices.json');
+    const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,bitcoin-cash&vs_currencies=usd&include_24hr_change=true');
 
     if (!response.ok) {
       throw new Error('Failed to fetch prices');
@@ -19,16 +10,12 @@ export const fetchCryptoPrices = async (): Promise<PricesData> => {
 
     const data = await response.json();
 
-    if (!data?.pageProps?.priceData) {
-      throw new Error('Invalid price data format');
-    }
-
-    const coins: CoinPrice[] = data.pageProps.priceData;
+    const coins: CoinPrice = data;
 
     return {
-      btc: coins.find((coin) => coin.ticker === 'BTC')?.price || '',
-      eth: coins.find((coin) => coin.ticker === 'ETH')?.price || '',
-      bch: coins.find((coin) => coin.ticker === 'BCH')?.price || ''
+      btc: coins['bitcoin'].usd.toString() || '',
+      eth: coins['ethereum'].usd.toString() || '',
+      bch: coins['bitcoin-cash'].usd.toString() || ''
     };
   } catch (error) {
     console.error('Error fetching crypto prices:', error);

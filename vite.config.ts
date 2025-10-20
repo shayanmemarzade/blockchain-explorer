@@ -11,11 +11,6 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api-latestblock/, ''),
       },
-      '/api': {
-        target: 'https://www.blockchain.com/explorer',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
     },
   },
 })
