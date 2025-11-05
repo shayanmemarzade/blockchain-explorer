@@ -1,5 +1,5 @@
-const BLOCKCHAIN_BASE_URL = 'https://blockchain.info';
-const HASKOIN_BASE_URL = 'https://api.blockchain.info/haskoin-store/btc';
+const BLOCKCHAIN_BASE_URL = import.meta.env.VITE_BLOCKCHAIN_BASE_URL;
+const HASKOIN_BASE_URL = import.meta.env.VITE_HASKOIN_BASE_URL;
 
 export const fetchLatestBlock = async () => {
   const response = await fetch('/api-latestblock');
