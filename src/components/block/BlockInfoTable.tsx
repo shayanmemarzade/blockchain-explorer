@@ -10,10 +10,9 @@ import styles from '../../styles/BtcBlockDetail.module.scss';
 interface BlockInfoTableProps {
   blockData: BlockData;
   confirmations: number;
-  onCopy: (text: string) => void;
 }
 
-export const BlockInfoTable = ({ blockData, confirmations, onCopy }: BlockInfoTableProps) => {
+export const BlockInfoTable = ({ blockData, confirmations }: BlockInfoTableProps) => {
   const transactions = blockData.tx as Transaction[];
   return (
     <div className={styles.infoTable}>
@@ -21,7 +20,6 @@ export const BlockInfoTable = ({ blockData, confirmations, onCopy }: BlockInfoTa
         label="Hash"
         value={blockData.hash}
         copyable
-        onCopy={onCopy}
       />
       <InfoRow label="Confirmations" value={confirmations} />
       <InfoRow label="Timestamp" value={formatTimestamp(blockData.time)} />

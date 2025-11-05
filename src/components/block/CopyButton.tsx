@@ -1,34 +1,49 @@
+import { ToastContainer, toast } from 'react-toastify';
 import styles from '../../styles/BtcBlockDetail.module.scss';
 
 interface CopyButtonProps {
   text: string;
-  onCopy: (text: string) => void;
   ariaLabel?: string;
 }
 
-export const CopyButton = ({ text, onCopy, ariaLabel = 'Copy to clipboard' }: CopyButtonProps) => {
+export const CopyButton = ({ text, ariaLabel = 'Copy to clipboard' }: CopyButtonProps) => {
+  const handleCopyToClipboard = async (text: string): Promise<void> => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast.success('Copied to clipboard!', {
+        position: 'bottom-right',
+        autoClose: 2000,
+      });
+    } catch (err) {
+      console.error('Failed to copy:', err);
+      toast.error('Failed to copy to clipboard');
+    }
+  };
   return (
-    <button
-      className={styles.copyButton}
-      onClick={() => onCopy(text)}
-      aria-label={ariaLabel}
-      type="button"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
+    <>
+      <ToastContainer />
+      <button
+        className={styles.copyButton}
+        onClick={() => handleCopyToClipboard(text)}
+        aria-label={ariaLabel}
+        type="button"
       >
-        <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-      </svg>
-    </button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+        </svg>
+      </button>
+    </>
   );
 };
